@@ -1,0 +1,14 @@
+{
+    "faq":[
+        {"id":1, "question":"fgbgfd", "answer":"erferfgfgg"},
+        {"id":2, "question":"ssfsfggfbgfd", "answer":"fbfgbfgfgg"},
+        {"id":3, "question":"frrrgdsbgfd", "answer":"svgfgfgg"}
+
+    ],
+    "about":[
+        {"id":1, "fullname":"dfvdfv", "age":18,"gender":"dfd","profession":"xfgb"},
+        {"id":2, "fullname":"dfvdfv", "age":18,"gender":"dfd","profession":"xfgb"},
+        {"id":3, "fullname":"dfvdfv", "age":18,"gender":"dfd","profession":"xfgb"}
+
+    ]
+}

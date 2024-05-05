@@ -1,0 +1,180 @@
+{
+  "menu": [
+    { "id": "1", "title": "Home" },
+    { "id": "2", "title": "About" },
+    { "id": "3", "title": "Services" },
+    { "id": "4", "title": "Portfolio" },
+    { "id": "5", "title": "Testimonials" },
+    { "id": "6", "title": "Blog" },
+    { "id": "7", "title": "Contact" }
+  ],
+  "hero": [
+    {
+      "hello": "HELLO I'M",
+      "typedWords": ["ALAMIN MUSA", "WEB DEVOLOPER", "UX/UI DESIGNER"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "btnTxt": "Download CV"
+    }
+  ],
+  "about": [
+    {
+      "url": "img/man.png",
+      "title": "About Me",
+      "text1": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "text2": "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor si voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "btnCV": "Download CV",
+      "btnPortfolio": "Portfolio"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Creative Design",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    },
+    {
+      "id": 2,
+      "title": "Clean Code",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    },
+    {
+      "id": 3,
+      "title": "Responsive Design",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    },
+    {
+      "id": 4,
+      "title": "Bootstrap 4",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    },
+    {
+      "id": 5,
+      "title": "Font Icons",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    },
+    {
+      "id": 6,
+      "title": "Awesome Support",
+      "description": "Lorem Ipsum simply text of the printing and type setting industry when an unknown printing simply"
+    }
+  ],
+  "facts": [
+    {
+      "id": 1,
+      "counter": 368,
+      "title": "HAPPY CLIENTS"
+    },
+    {
+      "id": 2,
+      "counter": 937,
+      "title": "PROJECTS COMPLEATED"
+    },
+    {
+      "id": 3,
+      "counter": 438,
+      "title": "FILES DOWNLOADED"
+    },
+    {
+      "id": 4,
+      "counter": 5946,
+      "title": "LIENS OF CODE"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": 1,
+      "url": "img/portfolio/1.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    },
+    {
+      "id": 2,
+      "url": "img/portfolio/2.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    },
+    {
+      "id": 3,
+      "url": "img/portfolio/3.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    },
+    {
+      "id": 4,
+      "url": "img/portfolio/4.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    },
+    {
+      "id": 5,
+      "url": "img/portfolio/5.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    },
+    {
+      "id": 6,
+      "url": "img/portfolio/6.jpg",
+      "logo": "Brex Logo",
+      "brand": "Brand"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum",
+      "url": "img/team-1.png",
+      "fullName": "Alamin Musa",
+      "profession": "Front End Developer"
+    },
+    {
+      "id": 2,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum",
+      "url": "img/team-1.png",
+      "fullName": "Alamin Musa",
+      "profession": "Front End Developer"
+    },
+    {
+      "id": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum",
+      "url": "img/team-1.png",
+      "fullName": "Alamin Musa",
+      "profession": "Front End Developer"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "url": "img/blog/1.png",
+      "cate": "Web",
+      "title": "Master These Awesome",
+      "date": "By Dorian Gray, Jun 27, 2018",
+      "description": "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been"
+    },
+    {
+      "id": 2,
+      "url": "img/blog/2.png",
+      "cate": "Web",
+      "title": "Best Design Items to Appeal",
+      "date": "By Dorian Gray, Jun 27, 2018",
+      "description": "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been"
+    },
+    {
+      "id": 3,
+      "url": "img/blog/3.png",
+      "cate": "Web",
+      "title": "The 20 Best Lightroom Presets",
+      "date": "By Dorian Gray, Jun 27, 2018",
+      "description": "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been"
+    }
+  ],
+  "info": [
+    {
+      "address1": "2651 Main Street, Suit 124",
+      "address2": "Seattle, WA, 98101",
+      "number1": "0123456789",
+      "number2": "0345627891",
+      "mail1": "hello@thetheme.io",
+      "mail2": "inf0@brex-theme.io"
+    }
+  ]
+}

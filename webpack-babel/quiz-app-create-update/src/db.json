@@ -1,0 +1,33 @@
+{
+  "subjects": [
+    {
+      "id": "1",
+      "name": "subject1"
+    },
+    {
+      "id": "2",
+      "name": "subject2"
+    },
+    {
+      "id": "3",
+      "name": "subject3"
+    }
+  ],
+  "questions": [
+    {
+      "id": "1",
+      "questionsText": "text1",
+      "subjectName": "name1"
+    },
+    {
+      "id": "2",
+      "questionsText": "text2",
+      "subjectName": "name2"
+    },
+    {
+      "id": "3",
+      "questionsText": "text3",
+      "subjectName": "name3"
+    }
+  ]
+}
