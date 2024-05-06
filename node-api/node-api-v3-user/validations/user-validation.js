@@ -16,7 +16,6 @@ const userValidate = (user) => {
     return new result.ErrorResult(validationResult.message)
 }
 
-
 const checkUserNameNotNull = (user) => {
     if (user.username === '') {
         return new ValidationResult(false, generateNotNullMessage('Username'))
