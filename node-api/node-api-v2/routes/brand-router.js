@@ -12,7 +12,10 @@ const handleBrandRoutes = (req, res) => {
             brandController.createBrand(req, res)
             break;
         case HTTP_METHODS.DELETE:
-            brandController.deleteBrand(req, res)
+            brandController.removeBrand(req, res)
+            break;
+        case HTTP_METHODS.PUT:
+            brandController.updateBrand(req, res);
             break;
     }
 }
