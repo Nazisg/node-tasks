@@ -14,8 +14,14 @@ const createBrand = async(req,res)=>{
     generateResponse(res,201,addNewRecord)
 }
 
-const deleteBrand = async(req,res)=>{
-   
+const deleteBrand = async (req, res) => {
+    const id = req.params.id; 
+    const result = await brandService.deleteBrand(id);
+    if (result.success) {
+        generateResponse(res, 200, { message: result.message });
+    } else {
+        generateResponse(res, 404, { message: result.message });
+    }
 }
 
 module.exports = {

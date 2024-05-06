@@ -26,12 +26,21 @@ async function createBrand(brand) {
     return newBrand
 }
 async function deleteBrand(id) {
-    const result = await readFileAsync(DATABASE_PATH)
-    const myAllData = JSON.parse(result)
-    const filteredBrands = myAllData.filter((brand) => brand.id != id)
-    await writeFileAsync(DATABASE_PATH, JSON.stringify(filteredBrands, null, 2))
+    const result = await readFileAsync(DATABASE_PATH);
+    const myAllData = JSON.parse(result);
 
-    return filteredBrands
+    // Find the index of the brand with the given id
+    const index = myAllData.brands.findIndex(brand => brand.id === id);
+
+    if (index !== -1) {
+        // Remove the brand from the array
+        myAllData.brands.splice(index, 1);
+        // Write the updated data back to the file
+        await writeFileAsync(DATABASE_PATH, JSON.stringify(myAllData, null, 2));
+        return { success: true, message: "Brand deleted successfully" };
+    } else {
+        return { success: false, message: "Brand not found" };
+    }
 }
 
 module.exports = {
