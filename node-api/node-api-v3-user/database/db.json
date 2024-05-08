@@ -6,6 +6,13 @@
       "fullname": "John Doe",
       "username": "johndoe",
       "password": "123456"
+    },
+    {
+      "id": "2",
+      "email": "johndoe@gmail.com",
+      "fullname": "John Doe",
+      "username": "johndoe",
+      "password": "12345ffmQ!6"
     }
   ]
 }
