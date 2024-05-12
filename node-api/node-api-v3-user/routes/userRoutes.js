@@ -1,4 +1,4 @@
-const { USER_GET_ALL, USER_CREATE } = require('../utils/urlhelper')
+const { USER_GET_ALL, USER_CREATE, USER_DELETE, USER_UPDATE } = require('../utils/urlhelper')
 
 const userController = require('../controllers/user-controller')
 
@@ -10,6 +10,12 @@ const handleUserRoutes = (req, res) => {
             userController.addUser(req, res);
             break;
         case USER_GET_ALL:
+            userController.getAllUsers(req, res);
+            break;
+        case USER_DELETE:
+            userController.getAllUsers(req, res);
+            break;
+        case USER_UPDATE:
             userController.getAllUsers(req, res);
             break;
     }

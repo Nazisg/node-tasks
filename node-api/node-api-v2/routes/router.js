@@ -5,9 +5,11 @@ const generateResponse = require('../helper/responseGenerator')
 const handleRoutes = (req, res) => {
     const { url } = req
 
-    switch (url) {
+    let newUrl = `/${url.split('/')[1]}`
+
+    switch (newUrl) {
         case ENDPOINTS.DEFAULT_ENDPOINT:
-            console.log("Home page")
+            console.log("Home page", newUrl)
             break;
         case ENDPOINTS.BRAND_ENDPOINT:
             brandRouter.handleBrandRoutes(req, res)
