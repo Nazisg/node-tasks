@@ -14,22 +14,31 @@ const createBrand = async (req, res) => {
 }
 
 const removeBrand = async (req, res) => {
+    const { url } = req;
+    const id = url.split("/")[2];
+    const newId = id.replace("/", "");
 
+    const wasDeleted = await brandService.deleteBrand(newId);
+    console.log(`Delete result: ${wasDeleted ? "Success" : "Not Found"}`);
+    if (wasDeleted) {
+        generateResponse(res, 200, { message: "Resource deleted" });
+    } else {
+        generateResponse(res, 404, { message: "Resource not found" });
+    }
 };
 
-// const updateBrand = async (req, res) => {
-//     const brandId = req.params.id;
-//     const newData = req.body;
-//     const updatedBrand = await brandService.updateBrand(brandId, newData);
-//     generateResponse(res, 200, updatedBrand);
-// };
-
 async function updateBrand(req, res) {
-    const body = await parseRequestBody(res);
-    const brands = await getAllUsers(req, res);
-    const existUser = brands.find((b) => b.id === body.id);
-    const updatedBrand = await _userService.updateUser(existUser);
-    generateRes(res, 201, updatedBrand);
+    const { url } = req;
+    const id = url.split("/")[2];
+    const newId = id.replace("/", "");
+
+    const body = await parseRequestBody(req);
+    const updatedRecord = await brandService.updateBrand(newId, body);
+    if (updatedRecord) {
+        generateResponse(res, 200, updatedRecord);
+    } else {
+        generateResponse(res, 404, { message: "Resource not found" });
+    }
 };
 
 module.exports = {

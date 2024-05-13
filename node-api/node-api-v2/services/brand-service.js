@@ -29,21 +29,30 @@ async function deleteBrand(id) {
     const result = await readFileAsync(DATABASE_PATH);
     const myAllData = JSON.parse(result);
 
-    myAllData.brands = myAllData.brands.filter(brand => brand.id !== id);
+    const deleteBrands = myAllData.brands.find((brand) => brand.id === id);
+    const indexDeleteBrand = myAllData.brands.indexOf(deleteBrands);
+    myAllData.brands.splice(indexDeleteBrand, 1);
     await writeFileAsync(DATABASE_PATH, JSON.stringify(myAllData, null, 2));
+    return deleteBrands;
 }
 
 async function updateBrand(id, newData) {
     const result = await readFileAsync(DATABASE_PATH);
     const myAllData = JSON.parse(result);
+    const uptadeBrand = newData;
 
-    const index = myAllData.brands.findIndex(brand => brand.id === id);
-    if (index !== -1) {
-        myAllData.brands[index] = { ...myAllData.brands[index], ...newData };
-        await writeFileAsync(DATABASE_PATH, JSON.stringify(myAllData, null, 2));
-        return myAllData.brands[index];
+    myAllData.brands.map((brand) => {
+        if (brand.id === id) {
+            brand.brand_name = uptadeBrand.brand_name;
+        }
+    });
+
+    await writeFileAsync(DATABASE_PATH, JSON.stringify(myAllData, null, 2));
+    const uptadeBrandItem = myAllData.brands.find((brand) => brand.id === id);
+    if (uptadeBrandItem) {
+        return uptadeBrandItem;
     } else {
-        throw new Error("Brand not found");
+        throw new Error("Not Found");
     }
 }
 

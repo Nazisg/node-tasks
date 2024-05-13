@@ -9,7 +9,7 @@ const handleRoutes = (req, res) => {
 
     switch (newUrl) {
         case ENDPOINTS.DEFAULT_ENDPOINT:
-            console.log("Home page", newUrl)
+            console.log("Home page")
             break;
         case ENDPOINTS.BRAND_ENDPOINT:
             brandRouter.handleBrandRoutes(req, res)
