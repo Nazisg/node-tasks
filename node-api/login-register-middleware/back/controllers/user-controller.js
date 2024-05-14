@@ -10,7 +10,7 @@ async function getAllUsers(req, res) {
 
 async function addUser(req, res) {
     const body = await parseRequestBody(req)
-    const user = new User(body.email, body.fullname, body.username, body.password)
+    const user = new User(body.email, body.fullname, body.username, body.password, body.isActive)
     const result = await _userService.addUser(user)
     generateResponse(res, 201, result)
 }

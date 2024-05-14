@@ -6,8 +6,7 @@
       "fullname": "John Doe",
       "username": "johndoe",
       "password": "$2b$10$JnPDd6O3y0hZvcWz9eJu7O5aOtzKn5njmx87ClW4G4VcMmqAKpQfW",
-      "isActive":true
-
+      "isActive": true
     },
     {
       "id": "2",
@@ -15,8 +14,7 @@
       "fullname": "John Doe2",
       "username": "johndoe2",
       "password": "$2b$10$qR3GPVkTSGJW/IXW3Ma8juOb8CNNkTj6TRat52PzWg6k3Rup0lUIG",
-      "isActive":true
-
+      "isActive": true
     }
   ]
 }
