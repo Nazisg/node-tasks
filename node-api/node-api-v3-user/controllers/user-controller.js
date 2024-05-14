@@ -15,7 +15,14 @@ async function addUser(req, res) {
     generateResponse(res, 201, result)
 }
 
+async function verifyUserController(req, res) {
+    const body = await parseRequestBody(req)
+    const result = await _userService.verifyUser(body)
+    generateResponse(res, 200, result)
+}
+
 module.exports = {
     getAllUsers,
-    addUser
+    addUser,
+    verifyUserController
 }

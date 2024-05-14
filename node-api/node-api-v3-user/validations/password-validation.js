@@ -1,7 +1,7 @@
 const { validationResultHelper } = require('../utils/common')
 const PASSWORD_CONFIG = require('../utils/password-config')
 const { SuccessResult, ErrorResult } = require('../utils/results/result')
-const { PASSWORD_MIN_LENGTH, PASSWORD_UPPERCASE, PASSWORD_LOWERCASE, PASSWORD_DIGIT, PASSWORD_SPECIAL_CHAR, PASSWORD_SPACE } = require('./messages/password-messages')
+const { PASSWORD_MIN_LENGTH, PASSWORD_UPPERCASE, PASSWORD_LOWERCASE, PASSWORD_DIGIT, PASSWORD_SPECIAL_CHAR, PASSWORD_SPACE } = require('../utils/messages/password-messages')
 const { ValidationResult } = require("./validation-result")
 
 const validatePassword = password => {

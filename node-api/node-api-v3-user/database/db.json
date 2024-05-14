@@ -5,21 +5,18 @@
       "email": "johndoe@gmail.com",
       "fullname": "John Doe",
       "username": "johndoe",
-      "password": "123456"
+      "password": "$2b$10$JnPDd6O3y0hZvcWz9eJu7O5aOtzKn5njmx87ClW4G4VcMmqAKpQfW",
+      "isActive":true
+
     },
     {
       "id": "2",
       "email": "johndoe@gmail.com",
-      "fullname": "John Doe",
-      "username": "johndoe",
-      "password": "12345ffmQ!6"
-    },
-    {
-      "id": "3",
-      "email": "johndoe@gmail.com",
-      "fullname": "John Doe",
-      "username": "johndoe",
-      "password": "$2b$10$tWXMkzmlibWTqNNno2ZRtuvydwYhSNf9QNMCW2MrnDDIHMV2YSn/e"
+      "fullname": "John Doe2",
+      "username": "johndoe2",
+      "password": "$2b$10$qR3GPVkTSGJW/IXW3Ma8juOb8CNNkTj6TRat52PzWg6k3Rup0lUIG",
+      "isActive":true
+
     }
   ]
 }

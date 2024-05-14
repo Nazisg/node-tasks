@@ -1,4 +1,4 @@
-const { generateNotNullMessage, generateMinAndMAxLengthMessage } = require("./messages/base-message")
+const { generateNotNullMessage, generateMinAndMAxLengthMessage } = require("../utils/messages/base-message")
 const { ValidationResult } = require("./validation-result")
 const result = require('../utils/results/result')
 const { validationResultHelper } = require("../utils/common")
