@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const getRootPath  = require('../utils/root-path');
+const {getRootPath}  = require('../utils/root-path');
 
 function useAllStaticFiles(req, res, next) {
     const filePath = path.join(getRootPath(), "public", req.url);

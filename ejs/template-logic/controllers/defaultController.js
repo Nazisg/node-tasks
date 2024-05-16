@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const getRootPath = require('../utils/root-path')
+const {getRootPath} = require('../utils/root-path')
 const ejs = require('ejs')
 
 const getDefaultPage = (req, res) => {
@@ -11,7 +11,7 @@ const getDefaultPage = (req, res) => {
             res.end('Internal server error')
         }
 
-        const renderedHTML = ejs.render(data, { rootPath: getRootPath })
+        const renderedHTML = ejs.render(data, { rootPath: getRootPath() })
         res.writeHead(200, { 'Content-Type': 'text/html' })
         res.end(renderedHTML)
     })

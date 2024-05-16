@@ -7,6 +7,7 @@ const handleDefaultRouter = (req, res) => {
     switch (url) {
         case DEFAULT_ENDPOINT:
             defaultController.getDefaultPage(req,res)
+            break;
     }
 }
 
