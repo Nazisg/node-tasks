@@ -1,26 +1,28 @@
-const urlHelper = require("../utils/urlHelper")
 const generateResponse = require('../utils/responseGenerator')
-const { handleDefaultRouter } = require("./defaultRouter")
-const { handleCategoryRouter } = require("./categoryRouter")
-const { handleProductRouter } = require("./productRouter.")
+const urlhelper = require('../utils/urlHelper')
+const { handleBlogRouter } = require('./blogRouter')
+const { handleDefaultRouter } = require('./defaultRouter')
+const { handleBlogDetailRouter } = require('./blogDetailRouter')
 
 const handleRoutes = (req, res) => {
-    const { url } = req;
-    let newUrl = `/${url.split('/')[1]}`;
+    const { url } = req
+
+    let newUrl = `/${url.split('/')[1]}`
 
     switch (newUrl) {
-        case urlHelper.DEFAULT_ENDPOINT:
-            handleDefaultRouter(req,res)
+        case urlhelper.DEFAULT_ENDPOINT:
+            handleDefaultRouter(req, res)
             break;
-        case urlHelper.CATEGORY_ENDPOINT:
-            handleCategoryRouter(req,res)
+        case urlhelper.BLOG_ENDPOINT:
+            handleBlogRouter(req, res)
             break;
-        case urlHelper.PRODUCT_ENDPOINT:
-            handleProductRouter(req,res)
+        case urlhelper.BLOG_DETAIL_ENDPOINT:
+            console.log(url)
+            handleBlogDetailRouter(req, res)
             break;
         default:
             generateResponse(res, 404, { "message": 'Any error occured' })
-            break;
     }
 }
-module.exports = { handleRoutes }
+
+module.exports = handleRoutes 

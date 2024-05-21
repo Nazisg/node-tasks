@@ -1,9 +1,9 @@
 const DEFAULT_ENDPOINT = '/'
-const CATEGORY_ENDPOINT = '/categories'
-const PRODUCT_ENDPOINT = '/products'
+const BLOG_ENDPOINT = '/blog'
+const BLOG_DETAIL_ENDPOINT = '/blog/detail/'
 
 module.exports = {
     DEFAULT_ENDPOINT,
-    CATEGORY_ENDPOINT,
-    PRODUCT_ENDPOINT,
+    BLOG_ENDPOINT,
+    BLOG_DETAIL_ENDPOINT
 }

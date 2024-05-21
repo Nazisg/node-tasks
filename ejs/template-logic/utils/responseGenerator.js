@@ -1,4 +1,4 @@
-function generateResponse(res, status, data) {
+const generateResponse = (res, status, data)=> {
     const headers = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': "GET, HEAD, OPTIONS, POST, PUT",
@@ -8,7 +8,6 @@ function generateResponse(res, status, data) {
     };
     res.writeHead(status, headers);
     res.end(JSON.stringify(data));
-
 }
 
-module.exports = generateResponse
+module.exports = generateResponse;
