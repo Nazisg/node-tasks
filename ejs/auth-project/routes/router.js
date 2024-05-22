@@ -37,9 +37,7 @@ class Router {
     }
     extractUrl(url) {
         return +(url.split('/').pop())
-        
     }
-
 }
 
 module.exports = Router

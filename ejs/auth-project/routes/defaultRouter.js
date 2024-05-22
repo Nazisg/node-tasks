@@ -6,5 +6,4 @@ const Router = require('./router')
 const router = new Router()
 router.addRoute(DEFAULT_ENDPOINT,defaultController.getDefaultPage)
 
-
 module.exports = router.handleRoute.bind(router)  

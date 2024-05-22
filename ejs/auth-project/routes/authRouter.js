@@ -7,5 +7,4 @@ router.addRoute(LOGIN_ENDPOINT,authController.getLogin)
 router.addRoute(REGISTER_ENDPOINT,authController.getRegister)
 router.addRoute(LOGIN_VERIFY,authController.verifyUser)
 
-
 module.exports = router.handleRoute.bind(router)

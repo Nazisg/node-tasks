@@ -9,7 +9,6 @@ const { USER_USERNAME_DOESNT_EXIST, USER_PASSWORD_INCORRECT, USER_IS_BLOCK, USER
 
 async function getAllUsers() {
     return await baseService.getData(JSON_MODEL_KEYS.USERS)
-
 }
 
 async function addUser(model) {
@@ -24,7 +23,6 @@ async function addUser(model) {
     const saltRounds = 10;
     const saltKey = await bcrypt.genSalt(saltRounds)
     model.password = await bcrypt.hash(model.password, saltKey)
-
 
     const data = await baseService.insertData(JSON_MODEL_KEYS.USERS, model)
     return new result.SuccessResult(DATA_ADDED_SUCCESSFULLY, data)
@@ -43,7 +41,6 @@ async function verifyUser(user) {
 
     if(!existingUser.isActive) 
         return new result.ErrorResult(USER_IS_BLOCK)
-
 
     return new result.SuccessResult(USER_LOGIN_COMPLETE)
 }

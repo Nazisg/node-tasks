@@ -21,8 +21,6 @@ const handleDynamicRoutes = (req,res) => {
     if(!found){
         showErrorPage(req,res)
     }
-
-
 }
 
 const showErrorPage = (req,res) =>{
