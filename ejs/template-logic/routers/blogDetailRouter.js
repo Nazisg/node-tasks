@@ -1,5 +1,5 @@
-const { BLOG_DETAIL_ENDPOINT } = require('../utils/urlHelper')
-const blogDetailController = require('../controllers/blogDetailController')
+const { BLOG_DETAIL_ENDPOINT } = require('../utils/urlHelper');
+const blogDetailController = require('../controllers/blogDetailController');
 
 const handleBlogDetailRouter = (req, res) => {
 
@@ -10,8 +10,8 @@ const handleBlogDetailRouter = (req, res) => {
             blogDetailController.getBlogDetailPage(req, res)
             break;
     }
-}
+};
 
 module.exports = {
     handleBlogDetailRouter
-}
+};

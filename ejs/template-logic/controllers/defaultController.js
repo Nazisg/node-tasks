@@ -4,8 +4,9 @@ const getRootPath = require('../utils/root-path')
 const ejs = require('ejs')
 
 const getDefaultPage = async (req,res) => {
-    const ejsFilePath = path.join(getRootPath(), 'views','pages','default.ejs')
-    fs.readFile(ejsFilePath, 'utf-8', (err,data) => {
+    const htmlFilePath = path.join(getRootPath(), 'views','pages','default.ejs')
+    
+    fs.readFile(htmlFilePath, 'utf-8', (err,data) => {
         if (err) {
             res.writeHead(500, {'Content-Type': 'text/plain'})
             res.end('Internal server error')

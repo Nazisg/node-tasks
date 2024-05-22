@@ -1,8 +1,8 @@
-const generateResponse = require('../utils/responseGenerator')
-const urlhelper = require('../utils/urlHelper')
-const { handleBlogRouter } = require('./blogRouter')
-const { handleDefaultRouter } = require('./defaultRouter')
-const { handleBlogDetailRouter } = require('./blogDetailRouter')
+const generateResponse = require('../utils/responseGenerator');
+const urlhelper = require('../utils/urlHelper');
+const { handleBlogRouter } = require('./blogRouter');
+const { handleDefaultRouter } = require('./defaultRouter');
+const { handleBlogDetailRouter } = require('./blogDetailRouter');
 
 const handleRoutes = (req, res) => {
     const { url } = req
@@ -11,18 +11,17 @@ const handleRoutes = (req, res) => {
 
     switch (newUrl) {
         case urlhelper.DEFAULT_ENDPOINT:
-            handleDefaultRouter(req, res)
+            handleDefaultRouter(req, res);
             break;
         case urlhelper.BLOG_ENDPOINT:
-            handleBlogRouter(req, res)
+            handleBlogRouter(req, res);
             break;
         case urlhelper.BLOG_DETAIL_ENDPOINT:
-            console.log(url)
-            handleBlogDetailRouter(req, res)
+            handleBlogDetailRouter(req, res);
             break;
         default:
-            generateResponse(res, 404, { "message": 'Any error occured' })
+            generateResponse(res, 404, { message: 'An error occurred' });
     }
-}
+};
 
-module.exports = handleRoutes 
+module.exports = handleRoutes;
