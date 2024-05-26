@@ -1,12 +1,32 @@
 {
-    "users": [
-      {
-        "id": "1",
-        "email": "johndoe@gmail.com",
-        "fullname": "John Doe",
-        "username": "johndoe",
-        "password": "Jhondoe1!",
-        "isActive": true
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "email": "johndoe@gmail.com",
+      "username": "johndoe",
+      "password": "Jhondoe1!",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "email": "johndoe@gmail.com",
+      "username": "johndoe2",
+      "password": "$2b$10$WuJiMiy1MjEWioov4Ag2tu.YJX9r8h2pZcdyyqe5RsUOhfq4V4.WG",
+      "isActive": true
+    },
+    {
+      "id": "3",
+      "email": "johndoe@gmail.com",
+      "username": "johndoe3",
+      "password": "$2b$10$QHftP0I6q531QiWc2LtfhOOwsXFQUFTsUw/IUlZrOmyhtBOy9mdnC",
+      "isActive": true
+    },
+    {
+      "id": "4",
+      "email": "johndoe@gmail.com",
+      "username": "johndoe4",
+      "password": "$2b$10$SNs2a5rlfVQGgGEP1sGjMub4dPVTVXHlaQIOpk6rx7rQymd1/jVDC",
+      "isActive": true
+    }
+  ]
+}

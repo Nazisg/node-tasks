@@ -1,43 +1,47 @@
 class Router {
-    constructor(){
-        this.routes = {}
-    }
-    addRoute(path,handler,isExtractId=false){
-        this.routes[path] = {handler, isExtractId}
-    }
+    constructor() {
+        this.routes = {};
+    };
 
-    handleRoute(req,res) {
-        const {url} = req;
+    addRoute(path, handler, isExtractId = false) {
+        this.routes[path] = [handler, isExtractId];
+    };
+
+    handleRoute(req, res) {
+        const { url } = req;
         let splittedUrl = url;
-        if(this.isParameterPath(url)) {
-            splittedUrl = this.getBasePath(url)
+
+        if (this.isParameterPath(url)) {
+            splittedUrl = this.getBasePath(url);
         }
 
-        const route = this.routes[splittedUrl]  
+        const route = this.routes[splittedUrl];
 
-        if(!route) 
+        if (!route) {
             return false;
+        }
 
-        const {handler,isExtractId} = route
+        const [handler, isExtractId] = route;
         const id = isExtractId ? this.extractUrl(url) : null;
+        handler(req, res, id);
 
-        handler(req,res,id);
-        return true
-    }
+        return true;
+    };
 
     isParameterPath(url) {
-        const lastPartOfUrl = url.split('/').pop()
-        return !isNaN(+lastPartOfUrl)  
-    }
+        const endOfUrl = url.split('/').pop();
+        return !isNaN(+endOfUrl);
+    };
 
     getBasePath(url) {
-        const splittedUrl = url.split('/')
-        splittedUrl.pop()
-        return `${splittedUrl.join('/')}/`
-    }
-    extractUrl(url) {
-        return +(url.split('/').pop())
-    }
-}
+        const splittedUrl = url.split('/');
+        splittedUrl.pop();
+        return `${splittedUrl.join('/')}/`;
+    };
 
-module.exports = Router
+    extractUrl(url) {
+        return +(url.split('/').pop());
+    };
+};
+
+module.exports = Router;

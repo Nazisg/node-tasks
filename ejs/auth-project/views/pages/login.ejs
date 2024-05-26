@@ -8,16 +8,11 @@
     <div class="card-body">
         <form action="/login/verify" method="POST">
         <div class="row mx-0">
-            <div class="col-12">
-                <a href="/login">Brand</a>
-            </div>
-        </div>
-        <div class="row mx-0">
             <div class="col-3">
                 <label for="myUsername">Username</label>
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" id="myUsername">
+                <input type="text" name="username" class="form-control" id="myUsername">
             </div>
         </div>
         <div class="row mx-0">
@@ -25,7 +20,7 @@
                 <label for="myPassword">Password</label>
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" id="myPassword">
+                <input type="text" name="password" class="form-control" id="myPassword">
             </div>
         </div>
         <div class="row mx-0">

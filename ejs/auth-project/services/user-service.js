@@ -1,52 +1,31 @@
-const { JSON_MODEL_KEYS } = require('../utils/enums')
-const { userValidate } = require('../validations/user-validation')
-const baseService = require('./base-service')
-const result = require('../utils/results/result')
-const validatePassword = require('../validations/password-validation')
-const { DATA_ADDED_SUCCESSFULLY } = require('../utils/messages/password-messages')
-const bcrypt = require('bcrypt')
-const { USER_USERNAME_DOESNT_EXIST, USER_PASSWORD_INCORRECT, USER_IS_BLOCK, USER_LOGIN_COMPLETE } = require('../utils/messages/user-message')
+const baseService = require("../services/base-service");
+const bcyrpt = require('bcrypt');
 
-async function getAllUsers() {
-    return await baseService.getData(JSON_MODEL_KEYS.USERS)
-}
-
-async function addUser(model) {
-    //validate user model
-    const validationResult = userValidate(model)
-    if (!validationResult.success) return validationResult;
-
-    //validate password
-    const passwordValidationResult = validatePassword(model.password)
-    if (!passwordValidationResult.success) return passwordValidationResult
-
+async function signUp(model) {
+    console.log(`signUp auth service model: ${model}`);
     const saltRounds = 10;
-    const saltKey = await bcrypt.genSalt(saltRounds)
-    model.password = await bcrypt.hash(model.password, saltKey)
+    const saltKey = await bcyrpt.genSalt(saltRounds);
+    model.password = await bcyrpt.hash(model.password, saltKey);
 
-    const data = await baseService.insertData(JSON_MODEL_KEYS.USERS, model)
-    return new result.SuccessResult(DATA_ADDED_SUCCESSFULLY, data)
-}
+    const data = await baseService.signUp("users", model);
+    return data;
+};
 
 async function verifyUser(user) {
-    const myAllUsers = await baseService.getData(JSON_MODEL_KEYS.USERS)
-    const existingUser = myAllUsers.find(x=>x.username === user.username) 
+    const myAllUsers = await baseService.getAllJsonData()
+    const existingUser = myAllUsers.users.find(x => x.username === user.username);
     if (existingUser === undefined)
-        return new result.ErrorResult(USER_USERNAME_DOESNT_EXIST)
+        return new Error("user is not found");
 
-    const passwordVerifyResult = await bcrypt.compare(user.password,existingUser.password)
+    const passwordVerifyResult = await bcyrpt.compare(user.password, existingUser.password)
 
-    if(!passwordVerifyResult) 
-        return new  result.ErrorResult(USER_PASSWORD_INCORRECT)
+    if (!passwordVerifyResult)
+        return new Error("password is inccorrect");
 
-    if(!existingUser.isActive) 
-        return new result.ErrorResult(USER_IS_BLOCK)
+    if (!existingUser.isActive)
+        return new Error("user is blocked");
 
-    return new result.SuccessResult(USER_LOGIN_COMPLETE)
-}
+    return existingUser;
+};
 
-module.exports = {
-    getAllUsers,
-    addUser,
-    verifyUser
-}
+module.exports = { signUp, verifyUser };
