@@ -35,7 +35,7 @@ const getRegister = (req, res) => {
 const registerUser = async (req, res) => {
     const body = await parseRequestBody(req);
     const user = new User(body.email, body.username, body.password, true);
-    const result = await _userService.signUp(user);
+    const result = await _userService.insertData(user);
 
     if (result) {
         res.writeHead(302, {

@@ -8,8 +8,6 @@ const userValidate = (user) => {
         (
             checkUserNameNotNull(user),
             checkUserMinAndMax(user),
-            checkFullnameNotNull(user),
-            checkFullnameMinAndMax(user)
         )
     if (validationResult == null) return new result.SuccessResult()
 
@@ -26,20 +24,6 @@ const checkUserNameNotNull = (user) => {
 const checkUserMinAndMax = (user) => {
     if (user.username.length < 5 || user.username.length > 20) {
         return new ValidationResult(false, generateMinAndMAxLengthMessage('Username', 3, 20))
-    }
-    return new ValidationResult(true)
-}
-
-const checkFullnameNotNull = (user) => {
-    if (user.username === '') {
-        return new ValidationResult(false, generateNotNullMessage('Fullname'))
-    }
-    return new ValidationResult(true)
-}
-
-const checkFullnameMinAndMax = (user) => {
-    if (user.fullname.length < 5 || user.fullname.length > 20) {
-        return new ValidationResult(false, generateMinAndMAxLengthMessage('Fullname', 5, 20))
     }
     return new ValidationResult(true)
 }
