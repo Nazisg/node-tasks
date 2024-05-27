@@ -1,10 +1,7 @@
 {
-    "hero": [
-        {
-          "hello": "HELLO I'M",
-          "typedWords": ["ALAMIN MUSA", "WEB DEVOLOPER", "UX/UI DESIGNER"],
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "btnTxt": "Download CV"
-        }
-      ]
+  "hero": [
+    {
+      "title": "I am Jonathan Doe "
+    }
+  ]
 }
