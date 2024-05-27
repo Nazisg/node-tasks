@@ -3,5 +3,161 @@
     {
       "title": "I am Jonathan Doe "
     }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "2",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "3",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "4",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "5",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "6",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    }
+  ],
+  "about": [
+    {
+      "desc": "In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta sem turpis quis leo. Nulla in feugiat elit.",
+      "name": "Jonathan Doe",
+      "email": "hello@example.com",
+      "phone": "+1 908-736-1801",
+      "twitter": "freelancer9"
+    }
+  ],
+  "skills": [
+    {
+      "id":"1",
+      "title": "Webdesign",
+      "progress":"100%"
+    },
+    {
+      "id":"2",
+      "title": "Webdesign",
+      "progress":"100%"
+    },
+    {
+      "id":"3",
+      "title": "Webdesign",
+      "progress":"100%"
+    },
+    {
+      "id":"4",
+      "title": "Webdesign",
+      "progress":"100%"
+    }
+  ],
+  "portfolio": [
+    {
+      "id":"1",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    },
+    {
+      "id":"2",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    },
+    {
+      "id":"3",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    },
+    {
+      "id":"4",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    },
+    {
+      "id":"5",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    },
+    {
+      "id":"6",
+      "url":"assets/img/img-work-01.png",
+      "brand": "Branding",
+      "title":"Pehaz"
+    }
+  ],
+  "facts":[
+    {
+      "id":"1",
+      "title":"Clients",
+      "count":"43"
+    },
+    {
+      "id":"2",
+      "title":"Clients",
+      "count":"43"
+    },
+    {
+      "id":"3",
+      "title":"Clients",
+      "count":"43"
+    },
+    {
+      "id":"4",
+      "title":"Clients",
+      "count":"43"
+    }
+  ],
+  "testimonials":[
+    {
+      "id":"1",
+      "desc":"In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis",
+      "url":"assets/img/person.jpg",
+      "name":"Jane Doe",
+      "position":"Bristol Creative"
+    },
+    {
+      "id":"2",
+      "desc":"In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis",
+      "url":"assets/img/person.jpg",
+      "name":"Jane Doe",
+      "position":"Bristol Creative"
+    }
+  ],
+  "contact":[
+    {
+      "address":"999 Carter Street",
+      "address2":"Sailor Springs, IL 62434",
+      "phone":"+1 618-689-9409",
+      "phone2":"+1 781-254-8437",
+      "email":"hello@example.com",
+      "email2":"support@example.com",
+      "facebook":"me.freelancer3"
+    }
   ]
 }

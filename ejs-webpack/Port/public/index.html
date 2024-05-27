@@ -123,7 +123,7 @@
                         <h2>My Services</h2>
                     </div>
                     <!--end ts-title-->
-                    <div class="row">
+                    <div class="row" id="services-box">
                         <div class="col-sm-6 col-md-4 col-xl-4">
                             <div class="ts-item" data-animate="ts-fadeInUp">
                                 <div class="ts-item-content">
@@ -318,12 +318,12 @@
                         </div>
                         <div class="col-md-6">
                             <h4 class="ts-bubble-border">Hi There</h4>
-                            <p>
+                            <p id="desc">
                                 In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus fermentum
                                 ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est ultricies eros, ac porta
                                 sem turpis quis leo. Nulla in feugiat elit.
                             </p>
-                            <dl class="ts-column-count-2">
+                            <dl id="contact" class="ts-column-count-2">
                                 <dt>Name:</dt>
                                 <dd>Jonathan Doe</dd>
                                 <dt>Phone:</dt>
@@ -393,7 +393,7 @@
                             <a href="#contact" class="btn btn-outline-light mb-5">Contact Me</a>
                         </div>
                         <!--end col-md-6-->
-                        <div class="col-md-6">
+                        <div class="col-md-6" id="skills-box">
                             <div class="progress" data-progress-width="100%">
                                 <h5 class="ts-progress-title">Webdesign</h5>
                                 <figure class="ts-progress-value"></figure>
@@ -432,7 +432,7 @@
                         <h2>Portfolio</h2>
                     </div>
                     <!--end ts-title-->
-                    <div class="card-columns ts-gallery ts-column-count-4">
+                    <div class="card-columns ts-gallery ts-column-count-4" id="portfolio-box">
                         <a href="assets/img/img-work-01.png" class="card ts-gallery__item popup-image" data-animate="ts-fadeInUp">
                             <div class="ts-gallery__item-description">
                                 <h6 class="ts-opacity__50">Branding</h6>
@@ -571,7 +571,7 @@
 
             <section class="ts-block" data-bg-image="assets/img/bg-man-sitting.jpg">
                 <div class="container ts-promo-numbers">
-                    <div class="row">
+                    <div class="row" id="facts-box">
                         <div class="col-sm-6 col-md-3">
                             <div class="ts-promo-number text-center">
                                 <figure class="odometer" data-odometer-final="43">0</figure>
@@ -617,7 +617,7 @@
                     <!--end ts-title-->
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
-                            <div class="owl-carousel" data-owl-dots="1" data-owl-loop="1" data-animate="ts-fadeInUp">
+                            <div class="owl-carousel" data-owl-dots="1" data-owl-loop="1" data-animate="ts-fadeInUp" id="testimonials-box">
                                 <div class="slide mb-5">
                                     <figure class="d-inline-block p-3 ts-bg-primary text-white ts-has-talk-arrow">
                                         <i class="fa fa-quote-right"></i>
@@ -701,8 +701,8 @@
                         <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp">
                             <img src="assets/img/icon-pin.png" class="mb-4" alt="">
                             <h5>Address</h5>
-                            <div class="ts-opacity__50">
-                                <figure class="mb-0">999 Carter Street</figure>
+                            <div class="ts-opacity__50" id="address">
+                                <figure class="mb-0" >999 Carter Street</figure>
                                 <figure>Sailor Springs, IL 62434</figure>
                             </div>
                             <!--end ts-opacity__50-->
@@ -711,7 +711,7 @@
                         <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".1s">
                             <img src="assets/img/icon-phone-02.png" class="mb-4" alt="">
                             <h5>Phone</h5>
-                            <div class="ts-opacity__50">
+                            <div class="ts-opacity__50" id="phone">
                                 <figure class="mb-0">+1 618-689-9409</figure>
                                 <figure>+1 781-254-8437</figure>
                             </div>
@@ -721,7 +721,7 @@
                         <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".2s">
                             <img src="assets/img/icon-envelope.png" class="mb-4" alt="">
                             <h5>Email</h5>
-                            <div class="ts-opacity__50">
+                            <div class="ts-opacity__50" id="email">
                                 <figure class="mb-0">hello@example.com</figure>
                                 <figure>support@example.com</figure>
                             </div>
@@ -732,7 +732,7 @@
                             <img src="assets/img/icon-talk-bubble.png" class="mb-4" alt="">
                             <h5>Facebook Chat</h5>
                             <div class="ts-opacity__50">
-                                <figure>me.freelancer3</figure>
+                                <figure id="facebook">me.freelancer3</figure>
                             </div>
                             <!--end ts-opacity__50-->
                         </div>
