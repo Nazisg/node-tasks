@@ -1,38 +1,33 @@
-import { bindHeroPart } from "./creators/heroCreators.js"
-import { getHero } from "./requests/heroRequest.js"
-import { bindServicesPart } from "./creators/servicesCreators.js"
-import { getServices } from "./requests/servicesRequest.js"
-import { bindAboutPart } from "./creators/aboutCreators.js"
-import { getAbout } from "./requests/aboutRequest.js"
-import { bindSkillsPart } from "./creators/skillsCreators.js"
-import { getSkills } from "./requests/skillsRequest.js"
-import { bindPortfolioPart } from "./creators/portfolioCreators..js"
-import { getPortfolio } from "./requests/portfolioRequest.js"
-import { bindFactsPart } from "./creators/factsCreators.js"
-import { getFacts } from "./requests/factsRequest.js"
-import { bindTestimonialsPart } from "./creators/testimonialsCreators.js"
-import { getTestimonials } from "./requests/testimonialsRequest.js"
-import { bindContactPart } from "./creators/contactCreator.js"
-import { getContact } from "./requests/contactRequest.js"
+const http = require('http');
+const ROUTES = require('./routers/routes')
+const PORT = 4222;
+const useAllStaticFiles = require('./middlewares/static-file-middleware')
 
-async function LoadMyData() {
-    const heroServices = await getHero()
-    const servicesServices = await getServices()
-    const aboutServices = await getAbout()
-    const skillsServices = await getSkills()
-    const portfolioServices = await getPortfolio()
-    const factsServices = await getFacts()
-    const TestimonialsServices = await getTestimonials()
-    const ContactServices = await getContact()
+const server = http.createServer((req, res) => {
+    useAllStaticFiles(req,res,()=> {
+        handleDynamicRoutes(req,res);
+    })
+})
 
-    bindHeroPart(heroServices[0])
-    bindServicesPart(servicesServices)
-    bindAboutPart(aboutServices[0])
-    bindSkillsPart(skillsServices)
-    bindPortfolioPart(portfolioServices)
-    bindFactsPart(factsServices)
-    bindTestimonialsPart(TestimonialsServices)
-    bindContactPart(ContactServices[0])
+const handleDynamicRoutes = (req,res) => {
+    let found = false;
+    for (const handler of ROUTES) {
+        if(handler(req,res)) {
+            found = true
+            break
+        }
+    }
+    
+    if(!found){
+        showErrorPage(req,res)
+    }
 }
 
-document.addEventListener("DOMContentLoaded", LoadMyData)
+const showErrorPage = (req,res) =>{
+    res.writeHead(404, {'Content-Type': 'text/plain'})
+    res.end('Not found')
+}
+
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+})

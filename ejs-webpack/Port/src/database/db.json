@@ -1,0 +1,10 @@
+{
+    "services": [
+        {
+          "id": "1",
+          "url": "assets/img/icon-brushes.png",
+          "title": "Web Design",
+          "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+        }
+  ]
+}

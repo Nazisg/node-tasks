@@ -1,0 +1,43 @@
+<%- include(rootPath + '/views/layout/adminHeader.ejs') %>
+
+<a href="http://localhost:4222/admin/create" class="btn btn-outline-primary mt-5">Create</a>
+<a href="http://localhost:4222/" class="btn btn-outline-primary mt-5">Home</a>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">URL</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% datas.forEach(element=> { %>
+            <tr>
+                <th scope="row">
+                    <%= element.id %>
+                </th>
+                <td>
+                    <%= element.title %>
+                </td>
+                <td>
+                    <%= element.desc %>
+                </td>
+                <td>
+                    <%= element.url %>
+                </td>
+                <td class="d-flex align-items-center gap-4">
+                    <a href="http://localhost:4222/admin/update/<%= element.id %>"
+                        class="btn btn-outline-warning">Edit</a>
+                    <form method="post" action="/admin/deleteCard/<%= element.id %>"
+                        onsubmit="return confirm('Are you sure you want to delete this card?')">
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+  </table>
+
+  <%- include(rootPath + '/views/layout/AdminFooter.ejs') %>

@@ -1,0 +1,18 @@
+
+const DEFAULT_ENDPOINT = '/';
+const ADMIN_ENDPOINT = '/admin';
+const ADMIN_CREATE_ENDPOINT = '/admin/create'
+const ADMIN_UPDATE_ENDPOINT = '/admin/update'
+const ADMIN_CREATE_ACTION_ENDPOINT = '/admin/createCard'
+const ADMIN_UPDATE_ACTION_ENDPOINT = '/admin/updateCard/'
+const ADMIN_DELETE_ACTION_ENDPOINT = '/admin/deleteCard/'
+
+module.exports = {
+    DEFAULT_ENDPOINT,
+    ADMIN_ENDPOINT,
+    ADMIN_CREATE_ENDPOINT,
+    ADMIN_UPDATE_ENDPOINT,
+    ADMIN_CREATE_ACTION_ENDPOINT,
+    ADMIN_UPDATE_ACTION_ENDPOINT,
+    ADMIN_DELETE_ACTION_ENDPOINT
+};
