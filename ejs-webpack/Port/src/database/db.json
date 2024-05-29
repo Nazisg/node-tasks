@@ -8,15 +8,15 @@
     },
     {
       "id": "2",
-      "title": "dd",
-      "desc": "uuu",
-      "url": "tt"
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
     },
     {
       "id": "3",
-      "title": "sferf",
-      "desc": "faefaerf",
-      "url": "aerferf"
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel nequee"
     }
   ]
 }
