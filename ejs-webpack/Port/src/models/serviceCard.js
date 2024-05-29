@@ -1,8 +1,8 @@
 class Card {
-    constructor(url, title, desc) {
-        this.url = url;
+    constructor(title, desc, url) {
         this.title = title;
         this.desc = desc;
+        this.url = url;
     };
 };
 

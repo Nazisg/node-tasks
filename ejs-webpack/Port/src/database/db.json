@@ -1,10 +1,22 @@
 {
-    "services": [
-        {
-          "id": "1",
-          "url": "assets/img/icon-brushes.png",
-          "title": "Web Design",
-          "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
-        }
+  "services": [
+    {
+      "id": "1",
+      "url": "assets/img/icon-brushes.png",
+      "title": "Web Design",
+      "desc": "Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque"
+    },
+    {
+      "id": "2",
+      "title": "dd",
+      "desc": "uuu",
+      "url": "tt"
+    },
+    {
+      "id": "3",
+      "title": "sferf",
+      "desc": "faefaerf",
+      "url": "aerferf"
+    }
   ]
 }

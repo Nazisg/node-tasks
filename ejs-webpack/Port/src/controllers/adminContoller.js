@@ -1,6 +1,7 @@
 const loadEjs = require('../utils/load-ejs');
 const _adminService =require('../services/admin-service')
-const Card = require('../models/serviceCard')
+const Card = require('../models/serviceCard');
+const parseRequestBody = require('../utils/parser');
 
 const getAdminPanel = async (req, res) => {
     const cards = await _adminService.getAllCards();
@@ -35,7 +36,7 @@ const getUpdatePage = async (req, res) => {
 
 const createCard = async (req, res) => {
     const body = await parseRequestBody(req);
-    const card = new Card(body.title, body.desc, body.icon);
+    const card = new Card(body.title, body.desc, body.url);
     const result = await _adminService.createCard(card);
 
     if (result) {

@@ -29,7 +29,7 @@ async function update(jsonKey, model, id) {
         if (card.id === id) {
             card.title = updatedCard.title;
             card.desc = updatedCard.desc;
-            card.icon = updatedCard.icon;
+            card.url = updatedCard.url;
         }
     });
 

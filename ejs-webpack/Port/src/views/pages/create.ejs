@@ -4,10 +4,6 @@
     <a href="http://localhost:4222/admin" class="btn btn-outline-primary mb-5 mt-5">Go Back</a>
     <form method="post" action="/admin/createCard">
         <div class="mb-3">
-            <label for="icon" class="form-label">URL</label>
-            <input type="text" name="icon" class="form-control" id="icon">
-        </div>
-        <div class="mb-3">
             <label for="cardTitle" class="form-label">Title</label>
             <input type="text" name="title" class="form-control" id="cardTitle" aria-describedby="emailHelp">
         </div>
@@ -15,8 +11,12 @@
             <label for="cardDesc" class="form-label">Description</label>
             <input type="text" name="desc" class="form-control" id="cardDesc">
         </div>
+        <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" name="url" class="form-control" id="url">
+        </div>
         <button type="submit" class="btn btn-outline-primary mt-5">Submit</button>
     </form>
 </div>
 
-<%- include(rootPath + '/views/layout/AdminFooter.ejs') %>
+<%- include(rootPath + '/views/layout/adminFooter.ejs') %>

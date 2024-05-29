@@ -7,181 +7,34 @@
             </div>
             <!--end ts-title-->
             <div class="row" id="services-box">
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-brushes.png" alt="">
-                                </figure>
-                                <!--end icon-->
+                <% datas.forEach(element=> { %>
+                    <div class="col-sm-6 col-md-4 col-xl-4">
+                        <div class="ts-item" data-animate="ts-fadeInUp">
+                            <div class="ts-item-content">
+                                <div class="ts-item-header">
+                                    <figure class="icon">
+                                        <img src="<%= element.url %>" alt="<%= element.title %>">
+                                    </figure>
+                                    <!--end icon-->
+                                </div>
+                                <!--end ts-item-header-->
+                                <div class="ts-item-body">
+                                    <h4><%= element.title %></h4>
+                                    <p class="mb-0"><%= element.desc %></p>
+                                </div>
+                                <!--end ts-item-body-->
+                                <div class="ts-item-footer">
+                                    <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
+                                        <span>Read More</span>
+                                    </a>
+                                </div>
+                                <!--end ts-item-footer-->
                             </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>Web Design</h4>
-                                <p class="mb-0">
-                                    Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
+                            <!--end ts-item-content-->
                         </div>
-                        <!--end ts-item-content-->
+                        <!--end ts-item-->
                     </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-camera.png" alt="">
-                                </figure>
-                                <!--end icon-->
-                            </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>Photography</h4>
-                                <p class="mb-0">
-                                    Fusce lorem ex, fringilla eget consequat ut, molestie sit amet nibh. Nullam vitae tincidunt
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
-                        </div>
-                        <!--end ts-item-content-->
-                    </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-video.png" alt="">
-                                </figure>
-                                <!--end icon-->
-                            </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>Video Editing</h4>
-                                <p class="mb-0">
-                                    Aenean pretium nulla libero, vitae iaculis libero efficitur a. Fusce ut augue finibus quam
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
-                        </div>
-                        <!--end ts-item-content-->
-                    </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-pencil.png" alt="">
-                                </figure>
-                                <!--end icon-->
-                            </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>Copy Writing</h4>
-                                <p class="mb-0">
-                                    Fusce lorem ex, fringilla eget consequat ut, molestie sit amet nibh. Nullam vitae tincidunt
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
-                        </div>
-                        <!--end ts-item-content-->
-                    </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-lcd.png" alt="">
-                                </figure>
-                                <!--end icon-->
-                            </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>Coding</h4>
-                                <p class="mb-0">
-                                    Aenean pretium nulla libero, vitae iaculis libero efficitur a. Fusce ut augue finibus quam
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
-                        </div>
-                        <!--end ts-item-content-->
-                    </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-                <div class="col-sm-6 col-md-4 col-xl-4">
-                    <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
-                        <div class="ts-item-content">
-                            <div class="ts-item-header">
-                                <figure class="icon">
-                                    <img src="assets/img/icon-phone.png" alt="">
-                                </figure>
-                                <!--end icon-->
-                            </div>
-                            <!--end ts-item-header-->
-                            <div class="ts-item-body">
-                                <h4>App Developing</h4>
-                                <p class="mb-0">
-                                    Duis molestie enim mattis gravida viverra. Fusce ut eros augue. Sed id mauris vel neque
-                                </p>
-                            </div>
-                            <!--end ts-item-body-->
-                            <div class="ts-item-footer">
-                                <a href="#" data-toggle="modal" data-target="#modal" class="ts-link-arrow-effect">
-                                    <span>Read More</span>
-                                </a>
-                            </div>
-                            <!--end ts-item-footer-->
-                        </div>
-                        <!--end ts-item-content-->
-                    </div>
-                    <!--end ts-item-->
-                </div>
-                <!--end col-xl-4-->
-
+                <% }) %>
             </div>
             <!--end row-->
         </div>
