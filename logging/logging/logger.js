@@ -4,12 +4,12 @@ const DiscordLogger = require("./discord-log");
 const SlackLogger = require("./slack-log");
 const TelegramLogger = require("./telegram-log");
 
-class Logger{
-    constructor(logType){
-        this.logType= logType
+class Logger {
+    constructor(logType) {
+        this.logType = logType
     }
-    async log(logModel){
-        switch(this.logType){
+    async log(logModel) {
+        switch (this.logType) {
             case LOGGING_TYPES.INFO:
                 const dbLogger = new DatabaseLogger(logModel)
                 await dbLogger.log()

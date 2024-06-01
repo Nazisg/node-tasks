@@ -8,15 +8,15 @@ dotenv.config()
 
 const PORT = process.env.PORT || 3232
 
-const server =  http.createServer((req,res)=>{
+const server = http.createServer((req, res) => {
     const logger = new Logger(LOGGING_TYPES.INFO)
     logger.log(new LogModel({
-        url:req.url,
-        method:req.method,
-        status:req.statusCode
+        url: req.url,
+        method: req.method,
+        status: req.statusCode
     }))
 })
 
-server.listen(PORT, ()=>{
+server.listen(PORT, () => {
     console.log(`Server listen ${PORT}`)
 })

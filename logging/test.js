@@ -6,7 +6,7 @@ const newTestMethod = async () => {
     try {
         const _logger = new Logger(LOGGING_TYPES.SUCCESS)
         await _logger.log(new LogModel({
-            name:'Naz'
+            name: 'Naz'
         }))
     } catch (error) {
         const logger = new Logger(LOGGING_TYPES.ERROR)

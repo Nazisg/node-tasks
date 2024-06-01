@@ -1,7 +1,7 @@
-class LogModel{
-    constructor(metadatas){
+class LogModel {
+    constructor(metadatas) {
         this.informations = {
-            date:Date.now(),
+            date: Date.now(),
             ...metadatas
         }
     }
