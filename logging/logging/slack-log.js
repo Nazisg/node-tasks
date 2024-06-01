@@ -10,7 +10,7 @@ class SlackLogger {
             token: process.env.token,
             signingSecret: process.env.signingSecret
         })
-        
+
         await app.client.chat.postMessage({
             token: token,
             channel: "test",
@@ -18,4 +18,4 @@ class SlackLogger {
         });
     }
 }
-module.exports =SlackLogger
+module.exports = SlackLogger
