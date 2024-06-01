@@ -18,4 +18,4 @@ class SlackLogger {
         });
     }
 }
-module.exports = SlackLogger
+module.exports =SlackLogger
