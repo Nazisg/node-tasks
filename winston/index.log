@@ -1,0 +1,92 @@
+{"level":"error","message":"An error log"}
+{"level":"error","message":"An error log","timestamp":"2024-06-04T15:56:08.988Z"}
+{"level":"error","message":"An error log","timestamp":"2024-06-04T15:57:38.275Z"}
+{
+  message: 'An error log',
+  level: 'error',
+  timestamp: '2024-06-04T15:59:21.339Z'
+}
+{
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\index.js:22:30)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-04T16:14:11.308Z'
+}
+{
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\index.js:22:30)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-04T16:25:12.186Z'
+}
+{
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\index.js:22:30)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-04T16:40:07.506Z'
+}
+{
+  method: 'GET',
+  isAuthenticated: false,
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\test.js:30:35)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-05T09:58:00.111Z'
+}
+{
+  method: 'GET',
+  isAuthenticated: false,
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\test.js:30:35)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-05T09:59:20.337Z'
+}
+{
+  method: 'GET',
+  isAuthenticated: false,
+  level: 'error',
+  message: 'An error log 504 Gateway Timeout',
+  stack: 'Error: 504 Gateway Timeout\n' +
+    '    at Object.<anonymous> (C:\\Users\\Acer\\Desktop\\node-tasks\\winston\\index.js:30:35)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1480:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1287:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1103:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:168:12)\n' +
+    '    at node:internal/main/run_main_module:30:49',
+  timestamp: '2024-06-05T10:06:08.215Z'
+}
