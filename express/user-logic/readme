@@ -1,0 +1,78 @@
+postgreSql commands
+
+select * from categories
+
+with recursive categories_a as
+(
+	select id, name, parent_id from categories c
+	where c.id =1
+	union all
+	select c.id, c.name, c.parent_id from categories c
+	inner join categories_a a
+	on c.parent_id = a.id
+)
+
+select * from categories_a
+
+-----------------------------------------------------
+
+create or replace function FUNC_GETCATEGORYBYHIERARCHY(PARAM_ID INTEGER)
+RETURNS TABLE (ID INTEGER, NAME VARCHAR, PARENT_ID INTEGER)
+	language plpgsql
+as $$
+begin
+return query
+ with recursive categories_a as
+(
+	select id, name, parent_id from categories c
+	where c.id =PARAM_ID
+	union all
+	select c.id, c.name, c.parent_id from categories c
+	inner join categories_a a
+	on c.parent_id = a.id
+)
+
+select * from categories_a;
+
+end;
+$$;
+
+SELECT * FROM FUNC_GETCATEGORYBYHIERARCHY(2);
+
+-----------------------------------------
+
+create or replace procedure ADD_CATEGORY(code integer, name varchar, parent_id integer)
+language plpgsql
+as $$
+declare
+begin
+insert into categories (code,name,parent_id)values(Code, Name, Parent_id);
+end;$$;
+
+-------------------------
+
+create or replace procedure UPDATE_CATEGORY(
+	ID integer,
+	CODE integer,
+	NAME varchar,
+	PARENT_ID integer
+) 
+language plpgsql as $$
+declare
+begin
+update categories set CODE=CODE, NAME=NAME, PARENT_ID= PARENT_ID where ID=ID;
+end; $$;
+
+------------------------
+
+create or replace procedure DELETE_CATEGORY(I_ID INTEGER)
+language plpgsql as $$
+declare
+begin
+update categories set DELETED = ID where ID=I_ID;
+end;$$;
+
+call add_category(2006,'Android',6)
+
+select * from categories
+--------------------
