@@ -5,6 +5,7 @@ const productController = require('./controllers/product-controller')
 const app = express()
 const categoryRouter = require('./routes/category-route')
 dotenv.config()
+const userRouter= require('./routes/user-route')
 
 const PORT = process.env.PORT | 4000
 
@@ -21,6 +22,7 @@ app.get('/about', (req, res) => {
 
 app.get('/products', productController.getAllProducts)
 app.use('/categories', categoryRouter)
+app.use('/users', userRouter)
 
 app.listen(PORT, () => {
     console.log(`Server listening PORT:${PORT}`)

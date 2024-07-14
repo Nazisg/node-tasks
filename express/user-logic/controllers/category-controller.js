@@ -1,4 +1,4 @@
-const CategoryAddDto = require('../models/categoryAdd')
+const CategoryAddDto = require('../models/category/categoryAdd')
 const categoryService = require('../services/category-service')
 
 const getAllCategories = async (req, res) => {

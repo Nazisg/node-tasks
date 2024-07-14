@@ -76,3 +76,44 @@ call add_category(2006,'Android',6)
 
 select * from categories
 --------------------
+
+-- User table
+
+create table users(
+	id serial primary key,
+	username varchar(100),
+	password varchar(255),
+    isActive BOOLEAN DEFAULT TRUE,
+	deleted SMALLINT DEFAULT 0 
+)
+
+----------------------
+create or replace procedure Add_User (
+	I_USERNAME varchar,
+	I_PASSWORD varchar,
+	I_ISACTIVE bool
+) language plpgsql as $$
+declare
+begin
+insert into users(username,password,isActive)values(i_username,i_password,i_isActive);
+end; $$;
+----------------------
+create or replace procedure UPADATE_USER (
+	I_ID integer,
+	I_USERNAME varchar,
+	I_PASSWORD varchar,
+	I_ISACTIVE bool
+) language plpgsql as $$
+declare
+begin
+update users set username = i_username, password = i_password,isActive = i_isactive where ID = i_id;
+end; $$;
+-------------------
+create or replace procedure DELETE_USER (
+	I_ID integer
+) language plpgsql as $$
+declare
+begin
+update users set deleted = id where ID = i_id;
+end; $$;
+---------------------

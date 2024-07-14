@@ -1,5 +1,5 @@
 const pool =require('../config/db')
-const Product = require('../models/product')
+const Product = require('../models/product/product')
 
 
 const getAllProducts = async()=>{

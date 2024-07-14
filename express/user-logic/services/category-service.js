@@ -1,5 +1,5 @@
 const pool = require('../config/db')
-const Category = require('../models/category')
+const Category = require('../models/category/category')
 
 
 const getAllCategories = async () => {
