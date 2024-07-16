@@ -13,18 +13,20 @@ const getCategoryById = async id => {
 }
 
 const getCategoryByHierarchy = async id => {
-    const res = await pool.query('select * from FUNC_GETCATEGORYBYHIERARCHY($1)', [id])
-    return Category.mapAll(res.rows)
+    const res = await pool.query('select * from func_getcategorybyhierarchy($1)', [id])
+    // return Category.mapAll(res.rows)
+    return res.rows
 }
-
-const updateCategory = async (category) => {
-    const { id, code, name, parent_id } = category;
-    await pool.query('CALL UPDATE_CATEGORY($1, $2, $3, $4);', [id, code, name, parent_id]);
-};
 
 const addCategory = async category => {
     await pool.query('call add_category($1,$2,$3);', [category.code, category.name, category.parent_id])
 }
+
+const updateCategory = async (id, category) => {
+    const { code, name, parent_id } = category;
+    await pool.query('CALL UPDATE_CATEGORY($1, $2, $3, $4);', [id, code, name, parent_id]);
+};
+
 const deleteCategory = async id => {
     const hierarchy_data = await getCategoryByHierarchy(id)
     if (hierarchy_data.length > 1) {

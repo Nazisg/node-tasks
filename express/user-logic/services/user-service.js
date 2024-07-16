@@ -1,15 +1,19 @@
 const pool = require('../config/db')
 const { DATA_GET_SUCCESSFULLY, DUPLICATE_USER, DATA_ADDED_SUCCESSFULLY } = require('../utils/constants/messages')
 const { SuccessResult, ErrorResult } = require('../utils/results/result')
+const UserValidation = require('../validation/user')
 const bcryptjs = require('bcryptjs')
+
+
 const getAllUsers = async () => {
     try {
-        const res = await pool.query('select * from users where u deleted = 0')
-        return new SuccessResult(DATA_GET_SUCCESSFULLY)
+        const res = await pool.query('select * from users u where u.deleted = 0')
+        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows)
     } catch (error) {
         return new ErrorResult(error.message)
     }
 }
+
 const getUserByUsername = async username => {
     try {
         const res = await pool.query('select * from users u where u.deleted = 0 and u.username = $1', [username])
@@ -18,6 +22,7 @@ const getUserByUsername = async username => {
         return new ErrorResult(error.message)
     }
 }
+
 const getOneUser = async id => {
     try {
         const res = await pool.query('select * from users u where u.deleted=0 and u.isActive = true and u.id = $1', [id])
@@ -30,6 +35,7 @@ const getOneUser = async id => {
 const getUsersByActiveStatus = async status => {
     try {
         const res = await pool.query('select * from users u where u.deleted=0 and u.isActive = $1', [status])
+        console.log(res);
         return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows)
     } catch (error) {
         return new ErrorResult(error.message)
@@ -55,10 +61,11 @@ const addUser = async user => {
         if (!businessResults.success) {
             return businessResults.data
         }
-        user.password = await bcryptjs.hash(user.password,10)
+        user.password = await bcryptjs.hash(user.password, 10)
         const res = await pool.query('call add_user($1,$2,$3)', [user.username, user.password, user.isActive])
         const addedUser = await getUserByUsername(user.username)
-        return new SuccessResult(DATA_ADDED_SUCCESSFULLY, addedUser.data)
+        console.log(addedUser);
+        return new SuccessResult(DATA_ADDED_SUCCESSFULLY, addedUser)
 
     } catch (error) {
         return new ErrorResult(error.message)
@@ -74,11 +81,22 @@ const checkDuplicateUser = async (user) => {
     return new SuccessResult()
 }
 
-module.exports ={
+const updateUser = async (id, user) => {
+    const { username, password, isActive } = user;
+    await pool.query('CALL UPADATE_USER($1, $2, $3, $4);', [id, username, password, isActive]);
+};
+
+const deleteUser = async id => {
+    await pool.query('call delete_user($1);', [id])
+}
+
+module.exports = {
     getAllUsers,
     getOneUser,
     getOneUserByActiveStatus,
     getUserByUsername,
     getUsersByActiveStatus,
-    addUser
+    addUser,
+    updateUser,
+    deleteUser
 }
