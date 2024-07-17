@@ -1,0 +1,9 @@
+postgreSql commands
+
+create table countries (
+	id serial primary key,
+	sort_code int not null,
+	name varchar(100) not null,
+	deleted int default 0
+);
+create unique index uk_countries_acode_deleted on countries (sort_code,name,deleted)
