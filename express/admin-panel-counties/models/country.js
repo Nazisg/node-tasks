@@ -13,5 +13,9 @@ class Country {
         }
         return rows
     }
+    static mapOne(row) {
+        const country = new Country(row)
+        return country
+    }
 }
 module.exports = Country
