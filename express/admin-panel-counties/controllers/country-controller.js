@@ -57,7 +57,6 @@ const deleteCountry = async (req, res) => {
 const getCountryView = async (req, res) => {
     const id = req.params.id;
     const result = await countryService.getCountryById(id);
-    console.log(result.data)
     if (result.success) {
         res.render('country/view', { data: result.data });
     } else {
