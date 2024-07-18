@@ -17,6 +17,7 @@
     <div class="card-title">
       <h2>Country List</h2>
     </div>
+  </div>
 </div>
 <div class="card-body">
   <div class="row mx-0 mt-3">
@@ -25,20 +26,35 @@
         <table class="table table-bordered table-striped table-hover">
           <thead class="table-primary">
             <tr>
-                <th>Name</th>
+              <th>Name</th>
               <th colspan="2">Actions</th>
             </tr>
           </thead>
           <tbody>
             <% data.forEach(e => { %>
-             <tr>
-                 <td><%= e.name %></td>
-                    <td><a class="btn btn-warning" href="/countries/edit/<%= e.id %>">Edit</a></td>
-                    <td><a class="btn btn-danger" href="/countries/<%= e.id %>">Delete</a></td>
-             </tr>
+            <tr>
+              <td><%= e.name %></td>
+              <td>
+                <a class="btn btn-warning" href="/countries/edit/<%= e.id %>"
+                  >Edit</a
+                >
+              </td>
+              <td>
+                <!-- <a class="btn btn-danger" href="/countries/<%= e.id %>"
+                  >Delete</a
+                > -->
+                <form
+                  action="/countries/<%= e.id %>?_method=DELETE"
+                  method="POST"
+                  style="display: inline"
+                >
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+            </tr>
             <% }) %>
           </tbody>
-        </div>
+        </table>
       </div>
     </div>
   </div>

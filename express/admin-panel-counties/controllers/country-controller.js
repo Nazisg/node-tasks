@@ -29,9 +29,7 @@ const getCountryById = async (req, res) => {
 
 const getCountryEditView = async (req, res) => {
     const id = req.params.id;
-    console.log(id)
     const result = await countryService.getCountryById(id);
-    console.log(result.success)
     if (result.success) {
         res.render('country/edit', { data: result.data });
     } else {
@@ -41,7 +39,8 @@ const getCountryEditView = async (req, res) => {
 
 const editCountry = async (req, res) => {
     const id = req.params.id;
-    const countryEditDto = new CountryAddDTO(req.body);
+    // const countryEditDto = new CountryAddDTO(req.body);
+    const countryEditDto = req.body;
     const result = await countryService.updateCountry(id, countryEditDto);
     if (result.success) {
         res.redirect('/countries');
@@ -49,9 +48,12 @@ const editCountry = async (req, res) => {
         res.redirect(`/countries/edit/${id}`);
     }
 };
-const deleteCountry = async(req,res)=>{
+
+const deleteCountry = async (req, res) => {
     const result = await countryService.deleteCountry(req.params.id)
-    res.json(result)
+    if (result.success) {
+        res.redirect('/countries')
+    }
 }
 
 module.exports = {
