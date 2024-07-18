@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">
+      <h2>View Country</h2>
+    </div>
+  </div>
+  <div class="card-body">
+    <dl class="row">
+      <dt class="col-sm-3">Country</dt>
+      <dd class="col-sm-9"><%= data.name %></dd>
+    </dl>
+
+    <dl class="row">
+      <dt class="col-sm-3">Sort code</dt>
+      <dd class="col-sm-9"><%= data.sort_code %></dd>
+    </dl>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

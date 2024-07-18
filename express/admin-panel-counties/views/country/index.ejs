@@ -27,7 +27,7 @@
           <thead class="table-primary">
             <tr>
               <th>Name</th>
-              <th colspan="2">Actions</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -38,11 +38,9 @@
                 <a class="btn btn-warning" href="/countries/edit/<%= e.id %>"
                   >Edit</a
                 >
-              </td>
-              <td>
-                <!-- <a class="btn btn-danger" href="/countries/<%= e.id %>"
-                  >Delete</a
-                > -->
+                <a class="btn btn-info" href="/countries/view/<%= e.id %>"
+                  >View</a
+                >
                 <form
                   action="/countries/<%= e.id %>?_method=DELETE"
                   method="POST"

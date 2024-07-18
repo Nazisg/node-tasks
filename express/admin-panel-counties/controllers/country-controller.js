@@ -1,7 +1,7 @@
 const CountryAddDTO = require('../models/countryAdd')
 const countryService = require('../services/country-service')
 
-const getCountryView = async (req, res) => {
+const getCountriesView = async (req, res) => {
     const result = await countryService.getAllCountries()
     if (result.success) {
         res.render('country/index', { data: result.data })
@@ -39,9 +39,7 @@ const getCountryEditView = async (req, res) => {
 
 const editCountry = async (req, res) => {
     const id = req.params.id;
-    // const countryEditDto = new CountryAddDTO(req.body);
-    const countryEditDto = req.body;
-    const result = await countryService.updateCountry(id, countryEditDto);
+    const result = await countryService.updateCountry(id, req.body);
     if (result.success) {
         res.redirect('/countries');
     } else {
@@ -56,7 +54,19 @@ const deleteCountry = async (req, res) => {
     }
 }
 
+const getCountryView = async (req, res) => {
+    const id = req.params.id;
+    const result = await countryService.getCountryById(id);
+    console.log(result.data)
+    if (result.success) {
+        res.render('country/view', { data: result.data });
+    } else {
+        res.redirect('/countries');
+    }
+}
+
 module.exports = {
+    getCountriesView,
     getCountryView,
     getCountryAddView,
     addCountry,
