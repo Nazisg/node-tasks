@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="card-title">
+        <h2>Add Blog</h2>
+      </div>
+    </div>
+    <div class="card-body">
+      <form action="/blogs/add" method="post">
+        <div class="row mx-0 mt-3">
+          <div class="col-4">
+            <label for="txtSortCode">Image src</label>
+          </div>
+          <div class="col-8">
+            <input
+              name="img_src"
+              type="text"
+              id="img_src"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row mx-0 mt-3">
+          <div class="col-4">
+            <label for="title">Title</label>
+          </div>
+          <div class="col-8">
+            <input name="title" type="text" id="title" class="form-control" />
+          </div>
+        </div>
+        <div class="row mx-0 mt-3">
+            <div class="col-4">
+              <label for="author">Author</label>
+            </div>
+            <div class="col-8">
+              <input name="author" type="text" id="author" class="form-control" />
+            </div>
+          </div>
+          <div class="row mx-0 mt-3">
+            <div class="col-4">
+              <label for="category">Category</label>
+            </div>
+            <div class="col-8">
+              <input name="category" type="text" id="category" class="form-control" />
+            </div>
+          </div>
+        <div class="row mx-0 mt-3">
+          <div class="col-12">
+            <input type="submit" value="Add" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<%- include('../partials/footer') %>
