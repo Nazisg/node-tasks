@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.get('/', blogController.getBlogsView)
+router.get('/dashboard', blogController.getDashboard)
 router.get('/add', blogController.addBlogView)
 router.post('/add',upload.single('img_src'), blogController.addBlog)
 router.get('/:id', blogController.getBlogById)
@@ -22,6 +23,5 @@ router.get('/detail/:id', blogController.getBlogDetailView)
 router.get('/edit/:id', blogController.editBlogView)
 router.post('/edit/:id', blogController.editBlog)
 router.post('/:id', blogController.deleteBlog)
-router.get('/dashboard', blogController.getDashboard)
 
 module.exports = router

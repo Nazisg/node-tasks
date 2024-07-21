@@ -11,14 +11,13 @@ const getBlogsView = async (req, res) => {
 const addBlogView = async (req, res) => {
     res.render('blog/blogAdd')
 }
-
 const editBlogView = async (req, res) => {
     const id = req.params.id;
     const result = await blogService.getBlogById(id);
     if (result.success) {
         res.render('blog/blogEdit', { data: result.data });
     } else {
-        res.redirect('/blogs');
+        res.redirect('/blogs/dashboard');
     }
 }
 
@@ -38,7 +37,7 @@ const addBlog = async (req, res) => {
     console.log(img_src)
     const result = await blogService.addBlog(img_src, title, author, category, description);
     if (result.success) {
-        res.redirect('/blogs');
+        res.redirect('/blogs/dashboard');
     }
 };
 
@@ -46,7 +45,7 @@ const editBlog = async (req, res) => {
     const id = req.params.id;
     const result = await blogService.updateBlog(id, req.body);
     if (result.success) {
-        res.redirect('/blogs');
+        res.redirect('/blogs/dashboard');
     } else {
         res.redirect(`/blogs/edit/${id}`);
     }
@@ -61,7 +60,7 @@ const getBlogById = async (req, res) => {
 const deleteBlog = async (req, res) => {
     const result = await blogService.deleteBlog(req.params.id)
     if (result.success) {
-        res.redirect('/blogs')
+        res.redirect('/blogs/dashboard')
     }
 }
 

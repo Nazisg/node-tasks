@@ -9,7 +9,6 @@ const Blog = sequelize.define('blogs', {
     },
     img_src: {
         type: DataTypes.STRING(255),
-        unique: true,
         allowNull: false,
         defaultValue:"/img/blog/blog-1.jpg"
     },
