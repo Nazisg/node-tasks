@@ -14,17 +14,22 @@ const User = sequelize.define('users', {
     },
     password: {
         type: DataTypes.STRING(255),
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING(255),
         unique: true,
         allowNull: false
     },
     isActive: {
         type: DataTypes.BOOLEAN,
-        unique: true,
-        allowNull: false
+        allowNull: false,
+        defaultValue:true
     },
     deleted: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 0        
     }
 })
 

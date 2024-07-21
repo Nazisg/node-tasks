@@ -2,30 +2,31 @@
 <div class="card mt-3">
     <div class="card-header">
       <div class="card-title">
-        <h2>Add Blog</h2>
+        <h2>Edit Blog</h2>
       </div>
     </div>
     <div class="card-body">
-      <form action="/blogs/add" method="post">
+      <form action="/blogs/edit/<%= data.id %>" method="post">
         <div class="row mx-0 mt-3">
           <div class="col-4">
-            <label for="img_src">Image</label>
-        </div>
-        <div class="col-8">
+            <label for="txtSortCode">Image src</label>
+          </div>
+          <div class="col-8">
             <input
-                name="img_src"
-                type="file"
-                id="img_src"
-                class="form-control"
+            value="<%= data.img_src %>"
+              name="img_src"
+              type="text"
+              id="img_src"
+              class="form-control"
             />
-        </div>
+          </div>
         </div>
         <div class="row mx-0 mt-3">
           <div class="col-4">
             <label for="title">Title</label>
           </div>
           <div class="col-8">
-            <input name="title" type="text" id="title" class="form-control" />
+            <input value="<%= data.title %>" name="title" type="text" id="title" class="form-control" />
           </div>
         </div>
         <div class="row mx-0 mt-3">
@@ -33,7 +34,7 @@
               <label for="author">Author</label>
             </div>
             <div class="col-8">
-              <input name="author" type="text" id="author" class="form-control" />
+              <input value="<%= data.author %>" name="author" type="text" id="author" class="form-control" />
             </div>
           </div>
           <div class="row mx-0 mt-3">
@@ -41,7 +42,7 @@
               <label for="category">Category</label>
             </div>
             <div class="col-8">
-              <input name="category" type="text" id="category" class="form-control" />
+              <input value="<%= data.category %>" name="category" type="text" id="category" class="form-control" />
             </div>
           </div>
           <div class="row mx-0 mt-3">
@@ -49,15 +50,14 @@
               <label for="description">Description</label>
             </div>
             <div class="col-8">
-              <input name="description" type="text" id="description" class="form-control" />
+              <input value="<%= data.description %>" name="description" type="text" id="description" class="form-control" />
             </div>
           </div>
         <div class="row mx-0 mt-3">
           <div class="col-12">
-            <input type="submit" value="Add" class="btn btn-primary" />
+            <input type="submit" value="Edit" class="btn btn-primary" />
           </div>
         </div>
       </form>
     </div>
-  </div>
-<%- include('../partials/footer') %>
+  </div><%- include('../partials/footer') %>

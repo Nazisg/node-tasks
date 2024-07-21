@@ -10,7 +10,8 @@ const Blog = sequelize.define('blogs', {
     img_src: {
         type: DataTypes.STRING(255),
         unique: true,
-        allowNull: false
+        allowNull: false,
+        defaultValue:"/img/blog/blog-1.jpg"
     },
     title: {
         type: DataTypes.STRING(255),
@@ -23,6 +24,11 @@ const Blog = sequelize.define('blogs', {
         allowNull: false
     },
     category: {
+        type: DataTypes.STRING(255),
+        unique: true,
+        allowNull: false
+    },
+    description: {
         type: DataTypes.STRING(255),
         unique: true,
         allowNull: false
