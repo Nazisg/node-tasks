@@ -33,8 +33,8 @@ const getBlogDetailView = async (req, res) => {
 
 const addBlog = async (req, res) => {
     const { title, author, category, description } = req.body;
-    const img_src = req.file && req.file.path;
-    console.log(img_src)
+    const img_src = req.file ? req.file.path : null;
+    console.log(img_src);
     const result = await blogService.addBlog(img_src, title, author, category, description);
     if (result.success) {
         res.redirect('/blogs/dashboard');

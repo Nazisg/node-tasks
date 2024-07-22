@@ -39,7 +39,20 @@
             <!-- <img src="/img/blog/blog-1.jpg" class="img-fluid" alt=""> -->
           </div>
           <div class="meta d-flex align-items-end">
-            <span class="post-date"><%= e.createdAt %></span>
+            <% function formatDate(date) {
+              const monthNames = [
+                  'yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun',
+                  'iyul', 'avqust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'
+              ];
+              const d = new Date(date);
+              const day = d.getDate();
+              const month = monthNames[d.getMonth()];
+              return `${day} ${month}`;
+          } %>
+            <span class="post-date">
+              <span><%= formatDate(e.createdAt).split(" ").slice(0,1) %></span>
+              <%= formatDate(e.createdAt).split(" ").slice(1,2) %>
+          </span>
             <div class="d-flex align-items-center">
               <i class="bi bi-person"></i>
               <span class="ps-2"><%= e.author %></span>

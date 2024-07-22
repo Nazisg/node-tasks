@@ -6,13 +6,14 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // Directory to store the uploaded files
+        cb(null, 'public/img/'); 
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Appends the extension of the original file
+        cb(null, Date.now() + path.extname(file.originalname)); 
     }
 });
-const upload = multer({ storage: storage });
+
+const upload = multer({ storage });
 
 router.get('/', blogController.getBlogsView)
 router.get('/dashboard', blogController.getDashboard)
