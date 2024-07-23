@@ -3,8 +3,6 @@ class User {
         this.id = row.id
         this.username = row.username
         this.password = row.password
-        this.isActive = row.isActive
-        this.deleted = row.deleted
     }
     static mapAll(dbRows) {
         const rows = []

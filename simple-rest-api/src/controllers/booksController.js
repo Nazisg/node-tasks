@@ -1,5 +1,5 @@
 const BookAddDto = require('../models/book/bookAdd')
-const bookService = require('../services/book-service')
+const bookService = require('../services/bookService')
 
 const getAllBooks = async (req, res) => {
     const data = await bookService.getAllBooks()
@@ -11,10 +11,7 @@ const getBookById = async (req, res) => {
     const data = await bookService.getBookById(req.params.id)
     res.json(data)
 }
-const getBookByHierarchy = async (req, res) => {
-    const data = await bookService.getBookByHierarchy(req.param.id)
-    res.json(data)
-}
+
 const addBook = async (req, res) => {
     const bookAddDto = new BookAddDto(req.body)
     await bookService.addBook(bookAddDto)
@@ -29,13 +26,12 @@ const updateBook = async (req, res) => {
 }
 
 const deleteBook = async(req,res)=>{
-    const result = await bookService.deleteBook(req.params.id)
-    req.json(result)
+    await bookService.deleteBook(req.params.id)
+    res.status(200).json({ message: "Book has been deleted successfully" });
 }
 module.exports = {
     getAllBooks,
     getBookById,
-    getBookByHierarchy,
     addBook,
     deleteBook,
     updateBook

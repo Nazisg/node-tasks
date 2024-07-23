@@ -1,97 +1,56 @@
-const pool = require('../config/db')
-const { DATA_GET_SUCCESSFULLY, DUPLICATE_USER, DATA_ADDED_SUCCESSFULLY } = require('../utils/constants/messages')
-const { SuccessResult, ErrorResult } = require('../utils/results/result')
-const bcryptjs = require('bcryptjs')
-
+const pool = require('../config/db');
+const { DATA_GET_SUCCESSFULLY, DATA_ADDED_SUCCESSFULLY } = require('../utils/constants/messages');
+const { SuccessResult, ErrorResult } = require('../utils/results/result');
+const bcryptjs = require('bcryptjs');
 
 const getAllUsers = async () => {
     try {
-        const res = await pool.query('select * from users u where u.deleted = 0')
-        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows)
+        const res = await pool.query('select * from users');
+        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows);
     } catch (error) {
-        return new ErrorResult(error.message)
+        return new ErrorResult(error.message);
     }
-}
-
-const getUserByUsername = async username => {
-    try {
-        const res = await pool.query('select * from users u where u.deleted = 0 and u.username = $1', [username])
-        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows[0])
-    } catch (error) {
-        return new ErrorResult(error.message)
-    }
-}
+};
 
 const getOneUser = async id => {
     try {
-        const res = await pool.query('select * from users u where u.deleted=0 and u.isActive = true and u.id = $1', [id])
-        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows[0])
+        const res = await pool.query('select * from users where id = $1', [id]);
+        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows[0]);
     } catch (error) {
-        return new ErrorResult(error.message)
+        return new ErrorResult(error.message);
     }
-}
-
-const getUsersByActiveStatus = async status => {
-    try {
-        const res = await pool.query('select * from users u where u.deleted=0 and u.isActive = $1', [status])
-        console.log(res);
-        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows)
-    } catch (error) {
-        return new ErrorResult(error.message)
-    }
-}
-
-const getOneUserByActiveStatus = async (id, status) => {
-    try {
-        const res = await pool.query('select * from users u where u.deleted=0 and u.isActive = $1 and u.id = $2', [status, id])
-        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows[0])
-    } catch (error) {
-        return new ErrorResult(error.message)
-    }
-}
+};
 
 const addUser = async user => {
     try {
-        const businessResults = await checkDuplicateUser(user)
-        if (!businessResults.success) {
-            return businessResults.data
-        }
-        user.password = await bcryptjs.hash(user.password, 10)
-        const res = await pool.query('call add_user($1,$2,$3)', [user.username, user.password, user.isActive])
-        const addedUser = await getUserByUsername(user.username)
-        console.log(addedUser);
-        return new SuccessResult(DATA_ADDED_SUCCESSFULLY, addedUser)
-
+        user.password = await bcryptjs.hash(user.password, 10);
+        const res = await pool.query(
+            'insert into users (username, password) values ($1, $2) retuning *',
+            [user.username, user.password]
+        );
+        return new SuccessResult(DATA_ADDED_SUCCESSFULLY, res.rows[0]);
     } catch (error) {
-        return new ErrorResult(error.message)
-
+        return new ErrorResult(error.message);
     }
-}
-
-const checkDuplicateUser = async (user) => {
-    const isExistonUser = await getUserByUsername(user.username)
-    if (isExistonUser.data)
-        return new ErrorResult(DUPLICATE_USER)
-
-    return new SuccessResult()
-}
+};
 
 const updateUser = async (id, user) => {
-    const { username, password, isActive } = user;
-    await pool.query('CALL UPADATE_USER($1, $2, $3, $4);', [id, username, password, isActive]);
+    const { username, password } = user;
+    const hashedPassword = password ? await bcryptjs.hash(password, 10) : undefined;
+    await pool.query(
+        'update users set username = $1, password = coalesce($2, password) where id = $3',
+        [username, hashedPassword, id]
+    );
 };
 
 const deleteUser = async id => {
-    await pool.query('call delete_user($1);', [id])
-}
+    await pool.query('delete from users where id = $1', [id]);
+};
 
 module.exports = {
     getAllUsers,
     getOneUser,
-    getOneUserByActiveStatus,
-    getUserByUsername,
-    getUsersByActiveStatus,
     addUser,
     updateUser,
     deleteUser
-}
+};

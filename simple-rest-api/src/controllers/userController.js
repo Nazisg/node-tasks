@@ -11,27 +11,10 @@ const getOneUser = async (req, res) => {
     res.json(result)
 }
 
-const getUsersByActiveStatus = async (req, res) => {
-    const {isActive} = req.query
-    const result = await userService.getUsersByActiveStatus(isActive)
-    res.json(result)
-}
-
-const getOneUserByActiveStatus = async (req, res) => {
-    const {isActive} = req.query
-    const result = await userService.getOneUserByActiveStatus(req.params.id, isActive)
-    res.json(result)
-}
-
-const getUserByUsername = async (req, res) => {
-    const result = await userService.getUserByUsername(req.params.username)
-    res.json(result)
-}
-
 const addUser = async (req, res) => {
-   const userDTO = new UserAddDto(req.body)
-   const result = await userService.addUser(userDTO)
-   res.json(result)
+    const userDTO = new UserAddDto(req.body)
+    await userService.addUser(userDTO)
+    res.status(200).json({ message: "User added successfully" });
 }
 
 const updateUser = async (req, res) => {
@@ -39,7 +22,7 @@ const updateUser = async (req, res) => {
     res.status(200).json({ message: "User has been updated successfully" });
 }
 
-const deleteUser = async(req,res)=>{
+const deleteUser = async (req, res) => {
     const result = await userService.deleteUser(req.params.id)
     res.json(result)
 }
@@ -47,9 +30,6 @@ const deleteUser = async(req,res)=>{
 module.exports = {
     getAllUsers,
     getOneUser,
-    getOneUserByActiveStatus,
-    getUserByUsername,
-    getUsersByActiveStatus,
     addUser,
     updateUser,
     deleteUser

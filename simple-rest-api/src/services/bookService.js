@@ -1,45 +1,35 @@
 const pool = require('../config/db')
-const Category = require('../models/category/category')
+const Book = require('../models/book/books')
 
 
-const getAllCategories = async () => {
-    const res = await pool.query('select * from categories c where c.deleted = 0')
-    return Category.mapAll(res.rows)
+const getAllBooks = async () => {
+    const res = await pool.query('select * from books')
+    return Book.mapAll(res.rows)
 }
 
-const getCategoryById = async id => {
-    const res = await pool.query('select * from categories c where c.id = $1 and c.deleted=0', [id])
-    return Category.mapOne(res.rows[0])
+const getBookById = async id => {
+    const res = await pool.query('select * from books b where b.id = $1', [id])
+    return Book.mapOne(res.rows[0])
 }
 
-const getCategoryByHierarchy = async id => {
-    const res = await pool.query('select * from FUNC_GETCATEGORYBYHIERARCHY($1)', [id])
-    return Category.mapAll(res.rows)
-}
-
-const updateCategory = async (category) => {
-    const { id, code, name, parent_id } = category;
-    await pool.query('CALL UPDATE_CATEGORY($1, $2, $3, $4);', [id, code, name, parent_id]);
+const updateBook = async (book) => {
+    const { id, title, author, published_date, isbn } = book;
+    await pool.query('update books set title = $1, author = $2, published_date = $3, isbn = $4 where id = $5', [title, author, published_date, isbn, id]);
 };
 
-const addCategory = async category => {
-    await pool.query('call add_category($1,$2,$3);', [category.code, category.name, category.parent_id])
+const addBook = async book => {
+    await pool.query('insert into books (title, author, published_date, isbn) values ($1, $2, $3, $4)', [book.title, book.author, book.published_date, book.isbn]);
 }
-const deleteCategory = async id => {
-    const hierarchy_data = await getCategoryByHierarchy(id)
-    if (hierarchy_data.length > 1) {
-        return { message: "Cannot delete relational/hierarchyal data" }
-    } else {
-        await pool.query('call delete_category($1);', [id])
-        return { message: 'Category deleted successfully' }
-    }
+
+const deleteBook = async id => {
+    await pool.query('delete from books where id = $1', [id]);
+    return { message: 'Book deleted successfully' };
 }
 
 module.exports = {
-    getAllCategories,
-    getCategoryById,
-    getCategoryByHierarchy,
-    addCategory,
-    deleteCategory,
-    updateCategory
+    getAllBooks,
+    getBookById,
+    addBook,
+    deleteBook,
+    updateBook
 }
