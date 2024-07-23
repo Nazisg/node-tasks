@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="card-body">
-      <form action="/blogs/edit/<%= data.id %>" method="post">
+      <form action="/blogs/edit/<%= data.id %>" method="post" enctype="multipart/form-data">
         <div class="row mx-0 mt-3">
           <div class="col-4">
             <label for="txtSortCode">Image src</label>
@@ -15,7 +15,7 @@
             <input
             value="<%= data.img_src %>"
               name="img_src"
-              type="text"
+              type="file"
               id="img_src"
               class="form-control"
             />
