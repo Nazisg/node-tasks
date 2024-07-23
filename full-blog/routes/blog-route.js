@@ -6,10 +6,10 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/img/'); 
+        cb(null, 'public/img/blog'); 
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); 
+        cb(null, path.extname(file.originalname)); 
     }
 });
 
@@ -22,7 +22,7 @@ router.post('/add',upload.single('img_src'), blogController.addBlog)
 router.get('/:id', blogController.getBlogById)
 router.get('/detail/:id', blogController.getBlogDetailView)
 router.get('/edit/:id', blogController.editBlogView)
-router.post('/edit/:id', blogController.editBlog)
+router.post('/edit/:id',upload.single('img_src'), blogController.editBlog)
 router.post('/:id', blogController.deleteBlog)
 
 module.exports = router
