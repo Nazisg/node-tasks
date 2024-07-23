@@ -20,12 +20,12 @@ const addBook = async (req, res) => {
 
 const updateBook = async (req, res) => {
     const { id } = req.params;
-    const book = { id, ...req.body }; 
+    const book = { id, ...req.body };
     await bookService.updateBook(book);
     res.status(200).json({ message: "Book has been updated successfully" });
 }
 
-const deleteBook = async(req,res)=>{
+const deleteBook = async (req, res) => {
     await bookService.deleteBook(req.params.id)
     res.status(200).json({ message: "Book has been deleted successfully" });
 }

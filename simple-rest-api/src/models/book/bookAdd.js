@@ -1,5 +1,5 @@
-class BookAddDto{
-    constructor(requestData){
+class BookAddDto {
+    constructor(requestData) {
         this.title = requestData.title
         this.author = requestData.author
         this.published_date = requestData.published_date

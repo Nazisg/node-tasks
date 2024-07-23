@@ -1,5 +1,5 @@
 const pool = require('../config/db');
-const { DATA_GET_SUCCESSFULLY, DATA_ADDED_SUCCESSFULLY } = require('../utils/constants/messages');
+const { DATA_GET_SUCCESSFULLY, DATA_ADDED_SUCCESSFULLY, DATA_DELETED_SUCCESSFULLY } = require('../utils/constants/messages');
 const { SuccessResult, ErrorResult } = require('../utils/results/result');
 const bcryptjs = require('bcryptjs');
 
@@ -21,11 +21,20 @@ const getOneUser = async id => {
     }
 };
 
+const getUserByUsername = async username => {
+    try {
+        const res = await pool.query('select * from users u where u.username = $1', [username])
+        return new SuccessResult(DATA_GET_SUCCESSFULLY, res.rows[0])
+    } catch (error) {
+        return new ErrorResult(error.message)
+    }
+}
+
 const addUser = async user => {
     try {
         user.password = await bcryptjs.hash(user.password, 10);
         const res = await pool.query(
-            'insert into users (username, password) values ($1, $2) retuning *',
+            'insert into users (username, password) values ($1, $2) returning *',
             [user.username, user.password]
         );
         return new SuccessResult(DATA_ADDED_SUCCESSFULLY, res.rows[0]);
@@ -44,7 +53,8 @@ const updateUser = async (id, user) => {
 };
 
 const deleteUser = async id => {
-    await pool.query('delete from users where id = $1', [id]);
+    const res = await pool.query('delete from users where id = $1', [id]);
+    return new SuccessResult(DATA_DELETED_SUCCESSFULLY, res.rows[0]);
 };
 
 module.exports = {
@@ -52,5 +62,6 @@ module.exports = {
     getOneUser,
     addUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getUserByUsername
 };

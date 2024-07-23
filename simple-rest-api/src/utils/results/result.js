@@ -1,5 +1,5 @@
-class Result{
-    constructor(success,message,data) {
+class Result {
+    constructor(success, message, data) {
         this.success = success
         this.message = message
         this.data = data
@@ -7,15 +7,15 @@ class Result{
 }
 
 class SuccessResult extends Result {
-    constructor(message, data = null){
-        super(true,message, data)
+    constructor(message, data = null) {
+        super(true, message, data)
     }
 }
 
-class ErrorResult extends Result{
+class ErrorResult extends Result {
     constructor(message, data = null) {
-        super(false,message, data)
-    } 
+        super(false, message, data)
+    }
 }
 
 module.exports = {

@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/',appRouter)
+app.use('/', appRouter)
 // app.use(authenticateUser)
 
 app.listen(PORT, () => {

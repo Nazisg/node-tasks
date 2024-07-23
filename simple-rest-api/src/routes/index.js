@@ -6,7 +6,7 @@ const express = require('express')
 const authenticateUser = require('../middlewares/auth')
 const router = express()
 
-router.use('/books', bookRouter)
+router.use('/books', authenticateUser, bookRouter)
 router.use('/users', userRouter)
 router.use('/auth', authRouter)
 
