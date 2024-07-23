@@ -1,7 +1,6 @@
 const pool = require('../config/db')
 const { DATA_GET_SUCCESSFULLY, DUPLICATE_USER, DATA_ADDED_SUCCESSFULLY } = require('../utils/constants/messages')
 const { SuccessResult, ErrorResult } = require('../utils/results/result')
-const UserValidation = require('../validation/user')
 const bcryptjs = require('bcryptjs')
 
 
@@ -53,10 +52,6 @@ const getOneUserByActiveStatus = async (id, status) => {
 
 const addUser = async user => {
     try {
-        const validator = new UserValidation(user)
-        const validationResult = validator.validate()
-        if (!validationResult.isValid)
-            return new ErrorResult(validationResult.toString())
         const businessResults = await checkDuplicateUser(user)
         if (!businessResults.success) {
             return businessResults.data

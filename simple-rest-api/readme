@@ -12,7 +12,5 @@ create table books(
 create table users(
 	id serial primary key,
 	username varchar(50) unique not null,
-	password varchar(100) not null,
-	isActive boolean default true,
-	deleted smallint  default 0
+	password varchar(100) not null
 )
