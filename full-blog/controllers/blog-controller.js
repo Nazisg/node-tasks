@@ -14,6 +14,7 @@ const addBlogView = async (req, res) => {
 const editBlogView = async (req, res) => {
     const id = req.params.id;
     const result = await blogService.getBlogById(id);
+    console.log(result.data.dataValues.img_src);
     if (result.success) {
         res.render('blog/blogEdit', { data: result.data });
     } else {
@@ -34,8 +35,8 @@ const getBlogDetailView = async (req, res) => {
 const addBlog = async (req, res) => {
     const { title, author, category, description } = req.body;
     const img_src = req.file ? req.file.path : null;
-    console.log(img_src);
-    const result = await blogService.addBlog(img_src, title, author, category, description);
+    const img = img_src.slice(6)
+    const result = await blogService.addBlog(img, title, author, category, description);
     if (result.success) {
         res.redirect('/blogs/dashboard');
     }
@@ -43,6 +44,9 @@ const addBlog = async (req, res) => {
 
 const editBlog = async (req, res) => {
     const id = req.params.id;
+    if (req.file) {
+        req.body.img_src = `/img/blog/${req.file.filename}`;
+    }
     const result = await blogService.updateBlog(id, req.body);
     if (result.success) {
         res.redirect('/blogs/dashboard');
