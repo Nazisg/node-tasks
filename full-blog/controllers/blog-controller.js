@@ -1,4 +1,5 @@
 const blogService = require('../services/blog-service')
+const fs = require('fs')
 
 const getBlogsView = async (req, res) => {
     const result = await blogService.getAllBlogs()
@@ -35,7 +36,7 @@ const getBlogDetailView = async (req, res) => {
 const addBlog = async (req, res) => {
     const { title, author, category, description } = req.body;
     const img_src = req.file ? req.file.path : null;
-    const img = img_src.slice(6)
+    const img = img_src.slice(6)    
     const result = await blogService.addBlog(img, title, author, category, description);
     if (result.success) {
         res.redirect('/blogs/dashboard');
